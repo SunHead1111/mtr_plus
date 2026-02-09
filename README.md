@@ -11,40 +11,33 @@
 ## 使用方式
 
 ```bash
-./mtr_plus.sh <host> [選項] [-- 其他 mtr 參數]
+./mtr_plus.sh
 ```
+
+腳本會用互動式選單引導設定，輸入主機/IP 與數字或 y/n 即可。
 
 ## 常用範例
 
 ```bash
-./mtr_plus.sh 1.1.1.1 -r -c 100 -i 0.2
-./mtr_plus.sh example.com -T -p 443 -r --json
-./mtr_plus.sh 8.8.8.8 -- -G 1 -F 2
+./mtr_plus.sh
 ```
 
-## 參數說明
+## 互動式設定內容
 
-- `-r, --report`：報表模式
-- `-w, --wide`：寬版輸出
-- `-c, --count N`：測試次數
-- `-i, --interval SEC`：間隔秒數
-- `-t, --timeout SEC`：逾時秒數
-- `-n, --no-dns`：不解析 DNS
-- `-a, --address IP`：綁定來源位址
-- `-p, --port N`：TCP/UDP 目的埠
-- `-T, --tcp`：使用 TCP
-- `-U, --udp`：使用 UDP
-- `-I, --icmp`：使用 ICMP
-- `-4, --ipv4`：強制 IPv4
-- `-6, --ipv6`：強制 IPv6
-- `-o, --order FIELDS`：自訂輸出欄位
-- `-b, --both`：顯示 IP 與主機名
-- `--aslookup`：顯示 AS 資訊
-- `--json`：JSON 輸出
-- `--csv`：CSV 輸出
-- `--xml`：XML 輸出
+- 協定：ICMP/TCP/UDP
+- IP 版本：IPv4/IPv6/自動
+- 介面/來源位址/目的埠/來源埠
+- 封包大小、位元樣式
+- 間隔、逾時、回應等待時間
+- TTL 起始/最大、未知節點上限
+- 報表模式、寬版、報表次數
+- 輸出格式：一般/JSON/XML/CSV/RAW/SPLIT
+- curses/GTK 介面與顯示模式
+- DNS 解析、顯示 IP 與主機名
+- 輸出欄位順序、IP 資訊、AS 資訊
+- 其他 mtr 原生參數直接透傳
 
 ## 小提示
 
-- `--` 後面的內容會原樣傳給 mtr
+- 其他 mtr 原生參數可直接輸入
 - 若需要更完整的欄位說明，可用 `mtr --help`
